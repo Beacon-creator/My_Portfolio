@@ -1,0 +1,35 @@
+<!-- portfolio.component.html -->
+<div class="portfolio-container">
+  <div class="portfolio-header">
+    <div class="portfolio-text">
+      <h2>Project Portfolio</h2>
+      <p>Brief description of the projects or skills showcased.</p>
+    </div>
+    <div class="portfolio-button">
+      <a href="https://github.com/Beacon-creator" target="_blank" class="icon-button">
+        <i class="fab fa-github"></i>
+        Visit My Github
+      </a>
+    </div>
+  </div>
+
+  
+<p-carousel
+  [value]="projects"
+  [numVisible]="3"
+  [numScroll]="1"
+  showIndicators="false"
+ [responsiveOptions]="responsiveOptions"
+  class="custom-carousel"
+>
+  <ng-template pTemplate="item" let-project>
+    <app-cardport
+      [imageUrl]="project.imageUrl"
+      [title]="project.title"
+      [description]="project.description"
+      [websiteLink]="project.websiteLink"
+    ></app-cardport>
+  </ng-template>
+</p-carousel>
+
+</div>

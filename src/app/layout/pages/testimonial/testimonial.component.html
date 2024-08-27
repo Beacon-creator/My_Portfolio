@@ -1,0 +1,23 @@
+<div class="my-reviews" [class.overlay-active]="isRatingFormVisible">
+  <div class="my-header">
+    <h1>Client's Feedback</h1>
+    <p>Customers testimonials</p>
+  </div>
+
+  <div class="card-container">
+    <!-- Other content -->
+    <button class="global-buttonb" (click)="openRatingForm()">
+      Add Review
+    </button>
+  </div>
+
+  <!-- Rating form pop-up -->
+  <app-ratingpopup
+    [(display)]="isRatingFormVisible"
+    (confirm)="handleFormSubmission($event)"
+  >
+  </app-ratingpopup>
+
+  <!-- Overlay -->
+  <div *ngIf="isRatingFormVisible" class="overlay"></div>
+</div>

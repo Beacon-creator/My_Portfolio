@@ -1,0 +1,40 @@
+<div class="home-container">
+  <div class="my_self">
+    <div class="home-content">
+      <h1>Hello, I'm Olubukola.</h1>
+      <p>
+        I create <span class="highlight">software applications</span> and
+        <span class="highlight"> analyze data</span>.
+      </p>
+      <a href="#contactme" class="global-buttonb">Get in touch</a>
+    </div>
+    <div class="home-image">
+      <img src="../../../assets/images/ProfilePic.png" alt="My Picture" />
+    </div>
+  </div>
+
+  <div class="my_skills">
+    <h1>My Skills</h1>
+    <p>My Expertise</p>
+
+    <p-carousel
+      [value]="cards"
+      [responsiveOptions]="responsiveOptions"
+      [circular]="true"
+      showIndicators="false"
+      orientation="vertical"
+    >
+      <ng-template pTemplate="item" let-card>
+        <div class="card-row">
+          <app-card
+            *ngFor="let c of card"
+            [logo]="c.logo"
+            [header]="c.header"
+            [body]="c.body"
+            [tools]="c.tools"
+          ></app-card>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

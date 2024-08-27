@@ -1,0 +1,109 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 0;
+     left: 0;
+   width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 3px var(--bg-color-shadow); /* Add a bottom shadow */
+ box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+      flex-grow: 1; /* Ensure the logo area takes up available space */
+}
+
+.logo-img {
+    height: 40px;
+  //  margin-right: 10px;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: auto; 
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li a {
+    color: var(--green-400);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: var(--green-100);
+}
+
+.navbar-contact { 
+    padding-left: 100px;
+}
+
+
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: 0; /* Show the menu toggle button */
+    }
+
+      .navbar-logo {
+        order: 1; /* Ensure the logo appears after the menu toggle */
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        /* Hidden by default */
+        position: absolute;
+        top: 60px;
+        /* Position below the navbar */
+        left: 0;
+        background-color: var(--bg-color);
+        padding: 10px 0;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-contact {
+        margin-top: 10px;
+        width: 100%;
+        visibility: hidden;
+        text-align: center;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        /* Show the menu when active */
+    }
+}

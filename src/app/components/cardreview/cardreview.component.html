@@ -1,0 +1,12 @@
+<div class="review-card">
+ <p-rating [(ngModel)]="userRating" stars="5" cancel="false"></p-rating>
+  <blockquote>{{ review }}</blockquote>
+  
+  <div class="review-details">
+    <img *ngIf="profilePicture" [src]="profilePicture" alt="Profile Picture" class="profile-pic"/>
+    <div>
+      <p class="reviewer-name">{{ name }}</p>
+      <p class="company-name">{{ company }}</p>
+    </div>
+  </div>
+</div>

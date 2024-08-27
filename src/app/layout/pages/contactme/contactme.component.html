@@ -1,0 +1,32 @@
+<div class="contact-container">
+  <h1>Contact Me</h1>
+  <p class="subject">For hire or collaboration.</p>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <div class="form-row">
+      <input type="text" formControlName="fullName" placeholder="Full Name" />
+    </div>
+
+    <div class="form-row">
+      <input type="email" formControlName="email" placeholder="Email" />
+    </div>
+
+    <div class="form-row">
+      <select formControlName="contactReason" class="custom-select">
+        <option value="" disabled selected>Select an option</option>
+        <option value="hire">For Hire</option>
+        <option value="collaboration">Collaboration</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <textarea formControlName="message" placeholder="Your Message" rows="5"></textarea>
+    </div>
+
+    <div class="form-row button-center">
+      <button type="submit" class="global-buttonb" pButton label="Send Message" [disabled]="!contactForm.valid">
+        <span class="pi pi-send"></span> Send Message
+      </button>
+    </div>
+  </form>
+</div>

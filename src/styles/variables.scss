@@ -1,0 +1,28 @@
+/* All of your CSS variables should be defined here */
+:root {
+  --bg-color: #FFFFFF;
+  --bg-color-shadow:  rgba(0, 0, 0, 0.1);
+  --header-color: #041203;
+  --primary-color: hsl(252, 84%, 58%);
+  --body-color: #041203;
+  --text-hover: #7cd477;
+   --border-hover: #166e11;
+  --text-color: #041203;
+  --button-border-color: #a8e3a5;
+  --button-bg-color: #041203;
+  --highlight-button-color: #E62872;
+    --highlight-button-hover: #a23a62;
+  --border-color: rgb(230, 230, 230);
+--disabled-color: #d3e7d3;
+  /* main colors */
+  --black-500: #161616;
+
+  /* secondary color shades */
+  --green-400: #041203;
+  --green-300: #041203;
+  --green-200: #166e11;
+  --green-100: #7cd477;
+  --green-50: #a8e3a5;
+  --green-25: #d3f1d2;
+  --green-shade: #e7e8e7;
+}

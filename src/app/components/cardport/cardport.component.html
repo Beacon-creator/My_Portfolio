@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-image">
+    <img [src]="imageUrl" alt="Card Image" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-header">{{ title }}</h3>
+    <h2 class="card-description">{{ description }}</h2>
+    <p class="card-description">
+      Tools Used: <span>{{ tools }} </span>
+    </p>
+    <div class="card-links">
+      <a [href]="githubLink" target="_blank" class="card-link">
+        <i class="fas fa-arrow-right"></i> View on GitHub
+      </a>
+
+      <a [href]="websiteLink" target="_blank" class="card-link">
+        <i class="fas fa-arrow-right"></i> Preview
+      </a>
+    </div>
+    <p class="card-reference">{{ references }}</p>
+  </div>
+</div>

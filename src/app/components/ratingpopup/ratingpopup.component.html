@@ -1,0 +1,75 @@
+<p-dialog
+  [(visible)]="display"
+  [modal]="true"
+  [closable]="false"
+  [dismissableMask]="false"
+  (onShow)="disableScroll()"
+  (onHide)="enableScroll()"
+  class="rating-dialog"
+>
+  <div class="form-wrapper" [formGroup]="productForm">
+    <div class="form-header">
+      <h2>Add Your Review</h2>
+    </div>
+
+    <div class="column gap-1">
+      <div class="row gap-05">
+        <span class="label">Name:</span>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div class="row gap-05">
+        <span class="label">Review:</span>
+        <textarea formControlName="review" placeholder="Write your review..."
+         rows="4"></textarea>
+      </div>
+
+      <div class="row gap-05">
+        <span class="label">Image:</span>
+        <input type="file" accept="image/*" formControlName="image" />
+      </div>
+
+      <div class="row gap-05">
+        <span class="label">Company Type:</span>
+        <select formControlName="companyType" class="custom-select">
+          <option value="personal">Personal</option>
+          <option value="company">Company</option>
+        </select>
+      </div>
+
+      <div class="row gap-05" *ngIf="productForm.value.companyType === 'company'">
+        <span class="label">Company Name:</span>
+        <input type="text" formControlName="companyName" placeholder="Company Name" />
+      </div>
+
+      <div class="row gap-05">
+        <span class="label">Rating:</span>
+        <p-rating formControlName="rating" stars="5">
+        <ng-template pTemplate="cancelicon">
+            <img 
+                src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" 
+                width="25px" 
+                height="25px" />
+        </ng-template>
+        <ng-template pTemplate="onicon">
+            <img 
+                src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png" 
+                width="25px" 
+                height="25px" />
+        </ng-template>
+        <ng-template pTemplate="officon">
+            <img 
+                src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png"
+                width="25px"
+                height="25px" />
+        </ng-template>
+</p-rating>
+      </div>
+    </div>
+
+    <p-footer>
+      <button type="button" class="global-buttonb" pButton icon="pi pi-check" label="Submit" (click)="onConfirm()" [class.disabled]="!productForm.valid"></button>
+      <button type="button" class="global-buttonb" pButton icon="pi pi-times" label="Cancel" (click)="onCancel()"></button>
+    </p-footer>
+  </div>
+</p-dialog>

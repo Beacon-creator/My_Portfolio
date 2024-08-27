@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/variables.scss";
+@import "./styles/theme-overrides.scss";
+
+/* Hide scrollbar for all elements while still allowing scrolling */
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just to keep the scrollbar area transparent */
+}
+
+html {
+  scrollbar-width: none;  /* For Firefox */
+    scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: none;  /* For Firefox */
+}
+
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+app-root {
+    height: 100%;
+
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Define global button styles */
+.global-button {
+       background-color: var(--bg-color);
+    color: var(--green-100);
+    padding: 10px 20px;
+    border: 1.5px solid var(--green-100);
+  border-radius: 5.5px; 
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.global-button:hover {
+     background-color: var(--green-100);
+     color: var(--bg-color);
+}
+
+.global-buttonb {
+       background-color: var(--green-100);
+    color: var(--bg-color);
+    padding: 10px 20px;
+    border: 1.5px solid var(--green-100);
+  border-radius: 5.5px; 
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.global-buttonb:hover {
+     background-color: var(--bg-color);
+     color: var(--green-100);
+}
+
+
+// ::ng-deep .p-rating .p-rating-cancel {
+//     display: none;
+// }
