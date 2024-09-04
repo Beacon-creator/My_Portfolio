@@ -1,3 +1,4 @@
+<!-- TestimonialComponent HTML -->
 <div class="my-reviews" [class.overlay-active]="isRatingFormVisible">
   <div class="my-header">
     <h1>Client's Feedback</h1>
@@ -5,19 +6,33 @@
   </div>
 
   <div class="card-container">
-    <!-- Other content -->
-    <button class="global-buttonb" (click)="openRatingForm()">
-      Add Review
-    </button>
+    <button class="global-buttonb" (click)="openRatingForm()">Add Review</button>
   </div>
 
   <!-- Rating form pop-up -->
-  <app-ratingpopup
-    [(display)]="isRatingFormVisible"
-    (confirm)="handleFormSubmission($event)"
-  >
+  <app-ratingpopup 
+    [(display)]="isRatingFormVisible" 
+    [header]="'Rate our Service'"
+    (confirm)="handleFormSubmission($event)">
   </app-ratingpopup>
+
+  <div class="testimonial-section">
+    <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [circular]="true">
+      <ng-template pTemplate="item" let-review>
+        <app-cardreview 
+          [userRating]="review.rating"
+          [review]="review.review"
+          [profilePicture]="review.image"
+          [name]="review.name"
+          [company]="review.companyName">
+        </app-cardreview>
+      </ng-template>
+    </p-carousel>
+  </div>
 
   <!-- Overlay -->
   <div *ngIf="isRatingFormVisible" class="overlay"></div>
+
+  <!-- Success/Failure Popup -->
+  <app-popup #popup></app-popup>
 </div>

@@ -18,11 +18,13 @@
     <p>My Expertise</p>
 
     <p-carousel
+    class="p-card"
       [value]="cards"
       [responsiveOptions]="responsiveOptions"
       [circular]="true"
       showIndicators="false"
       orientation="vertical"
+       verticalViewPortHeight="360px"
     >
       <ng-template pTemplate="item" let-card>
         <div class="card-row">

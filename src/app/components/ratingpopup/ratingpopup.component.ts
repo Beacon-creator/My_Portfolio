@@ -29,14 +29,13 @@ import { ButtonModule } from 'primeng/button';
 export class RatingpopupComponent {
   @Input() display: boolean = false;
   @Output() displayChange = new EventEmitter<boolean>();
-  @Output() confirm = new EventEmitter<any>();
+  @Output() confirm = new EventEmitter<any>(); // Emit review data
 
   @Input() header!: string;
 
   productForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    // Initialize productForm within the constructor
     this.productForm = this.formBuilder.group({
       name: ['', [Validators.required, this.specialCharacterValidator()]],
       image: [''],
@@ -47,12 +46,13 @@ export class RatingpopupComponent {
     });
   }
 
+  // Define disableScroll and enableScroll methods
   disableScroll() {
     document.body.style.overflow = 'hidden';
   }
 
   enableScroll() {
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'auto';
   }
 
   specialCharacterValidator(): ValidatorFn {
@@ -68,7 +68,6 @@ export class RatingpopupComponent {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      // Handle the file (e.g., save it to the form control, upload it, etc.)
       this.productForm.patchValue({ image: file });
     }
   }
@@ -97,9 +96,7 @@ export class RatingpopupComponent {
       rating: rating || 0,
     };
 
-    console.log('Form Data:', formData);
-
-    this.confirm.emit(this.productForm.value);
+    this.confirm.emit(formData); // Emit the review data
     this.display = false;
     this.displayChange.emit(this.display);
   }

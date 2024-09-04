@@ -1,25 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RatingModule } from 'primeng/rating';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'primeng/carousel';
 
 
 @Component({
   selector: 'app-cardreview',
   standalone: true,
-  imports: [RatingModule,CommonModule, FormsModule],
+  imports: [RatingModule,CarouselModule, CommonModule, FormsModule],
   templateUrl: './cardreview.component.html',
-  styleUrl: './cardreview.component.scss',
+  styleUrls: ['./cardreview.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Optionally add this if you use other web components
 })
 export class CardreviewComponent {
-  userRating: number = 0; // Initialize with a default rating of 0
-  review: string = ''; // User's review text
-  profilePicture: string | null = null; // URL of the profile picture
-  name: string = ''; // User's personal name
-  clientCompany: string = 'Personal'; // Either 'Company' or 'Personal'
-  company: string = ''; // Company name, used only if clientCompany is 'Company'
+  @Input() userRating: number = 0;
+  @Input() review: string = '';
+  @Input() profilePicture: string | null = null;
+  @Input() name: string = '';
+  @Input() clientCompany: string = 'Personal';
+  @Input() company: string = '';
 
   // Logic to handle file input for profile picture
   onFileSelected(event: Event): void {

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './layout/pages/home/home.component';
 import { AboutmeComponent } from './layout/pages/aboutme/aboutme.component';
 import { PortfolioComponent } from './layout/pages/portfolio/portfolio.component';

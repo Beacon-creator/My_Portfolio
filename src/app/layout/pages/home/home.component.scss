@@ -1,5 +1,5 @@
 .home-container {
-  padding: 30px 0px 0px 0px;
+  padding: 50px 0px 0px 0px;
 }
 
 .my_self {
@@ -8,6 +8,8 @@
   background-color: var(--green-shade);
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+
 }
 
 .home-content {
@@ -15,15 +17,14 @@
 }
 
 h1 {
-  font-size: 2rem; /* Increased for better visual hierarchy */
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--header-color);
   margin-bottom: 10px;
 }
 
 p {
-  font-size: 1.5rem; /* Adjusted to be more readable across devices */
-  font-weight: 700;
+  font-size: 1rem;
   color: var(--body-color);
   margin-bottom: 30px;
 }
@@ -52,14 +53,12 @@ p {
   padding: 20px;
   background-color: var(--bg-color);
   margin-top: 20px;
-  align-items: center;
+
 }
 
 .card-row {
-
   display: flex; 
-  gap: 10px;
-  justify-content: space-between;
+ // justify-content: space-between;
   flex-wrap: nowrap;
 }
 
@@ -67,6 +66,7 @@ p {
   flex: 1 1 calc(33.33% - 20px); /* Each card takes up 33.33% of the row's width */
   box-sizing: border-box;
   margin-right: 20px; /* Add margin between cards */
+  margin-top: 50px;
 }
 
 .card-row app-card:last-child {
@@ -74,6 +74,10 @@ p {
 }
 
 @media (max-width: 1200px) {
+  .home-container {
+    padding-top: 60px;
+  }
+
   .my_self {
     flex-direction: column;
   }
@@ -84,11 +88,12 @@ p {
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .card-row {
@@ -96,9 +101,23 @@ p {
   }
 
   .card-row app-card {
+  //  flex: 1 1 calc(50% - 20px); /* Two cards per row on medium screens */
+    margin-right: 5px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 1020px) {
+
+
+  .card-row {
+    flex-wrap: wrap;
+  }
+
+  .card-row app-card {
     flex: 1 1 calc(50% - 20px); /* Two cards per row on medium screens */
-    margin-right: 10px;
-    margin-top: 5px;
+   // margin-right: 5px;
+    margin-top: 40px;
   }
 }
 
@@ -125,10 +144,6 @@ p {
     margin-top: 30px;
   }
 
-  p {
-    font-size: 1.5rem;
-  }
-
   .my_skills {
     padding: 10px;
     margin-top: 10px;
@@ -140,15 +155,14 @@ p {
 
   .card-row app-card {
     flex: 1 1 calc(50% - 10px); /* Two cards per row */
-    margin-right: 0;
-    margin-top: 5px;
+    margin-right: 5;
+   // margin-top: 5px;
   }
 }
 
 @media (max-width: 576px) {
   .home-container {
     padding-top: 5rem;
-    
     flex-direction: column;
     text-align: center;
   }
@@ -168,13 +182,8 @@ p {
     margin-top: 30px;
   }
 
-  p {
-    font-size: 1.5rem;
-  }
-
   .my_skills {
-    padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .card-row {
@@ -184,6 +193,6 @@ p {
   .card-row app-card {
     flex: 1 1 100%; /* Full width for smaller screens */
     margin-right: 0;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 }

@@ -9,67 +9,107 @@
 >
   <div class="form-wrapper" [formGroup]="productForm">
     <div class="form-header">
-      <h2>Add Your Review</h2>
+      <h2>{{ header }}</h2>
     </div>
 
     <div class="column gap-1">
       <div class="row gap-05">
-        <span class="label">Name:</span>
-        <input type="text" formControlName="name" />
+        <label for="name" class="label">Name:</label>
+        <input id="name" type="text" formControlName="name" />
+        <div
+          *ngIf="productForm.controls['name'].errors?.['hasSpecialCharacter']"
+        >
+          The name contains special characters.
+        </div>
       </div>
 
       <div class="row gap-05">
-        <span class="label">Review:</span>
-        <textarea formControlName="review" placeholder="Write your review..."
-         rows="4"></textarea>
+        <label for="review" class="label">Review:</label>
+        <textarea
+          id="review"
+          formControlName="review"
+          placeholder="Write your review..."
+          rows="4"
+        ></textarea>
       </div>
 
       <div class="row gap-05">
-        <span class="label">Image:</span>
-        <input type="file" accept="image/*" formControlName="image" />
+        <label for="image" class="label">Image:</label>
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
       </div>
 
       <div class="row gap-05">
-        <span class="label">Company Type:</span>
-        <select formControlName="companyType" class="custom-select">
+        <label for="companyType" class="label">Company Type:</label>
+        <select
+          id="companyType"
+          formControlName="companyType"
+          class="custom-select"
+          (change)="onCompanyTypeChange($event)"
+        >
           <option value="personal">Personal</option>
           <option value="company">Company</option>
         </select>
       </div>
 
-      <div class="row gap-05" *ngIf="productForm.value.companyType === 'company'">
-        <span class="label">Company Name:</span>
-        <input type="text" formControlName="companyName" placeholder="Company Name" />
+      <div
+        class="row gap-05"
+        *ngIf="productForm.value.companyType === 'company'"
+      >
+        <label for="companyName" class="label">Company Name:</label>
+        <input
+          id="companyName"
+          type="text"
+          formControlName="companyName"
+          placeholder="Company Name"
+        />
       </div>
 
       <div class="row gap-05">
-        <span class="label">Rating:</span>
-        <p-rating formControlName="rating" stars="5">
-        <ng-template pTemplate="cancelicon">
-            <img 
-                src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" 
-                width="25px" 
-                height="25px" />
-        </ng-template>
-        <ng-template pTemplate="onicon">
-            <img 
-                src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png" 
-                width="25px" 
-                height="25px" />
-        </ng-template>
-        <ng-template pTemplate="officon">
-            <img 
-                src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png"
-                width="25px"
-                height="25px" />
-        </ng-template>
-</p-rating>
+        <label for="rating" class="label">Rating:</label>
+        <p-rating formControlName="rating" stars="5" cancel="false">
+          <ng-template pTemplate="cancelicon">
+            <img
+              src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png"
+              width="25px"
+              height="25px"
+            />
+          </ng-template>
+          <ng-template pTemplate="onicon">
+            <img
+              src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png"
+              width="25px"
+              height="25px"
+            />
+          </ng-template>
+          <ng-template pTemplate="officon">
+            <img
+              src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png"
+              width="25px"
+              height="25px"
+            />
+          </ng-template>
+        </p-rating>
       </div>
     </div>
 
     <p-footer>
-      <button type="button" class="global-buttonb" pButton icon="pi pi-check" label="Submit" (click)="onConfirm()" [class.disabled]="!productForm.valid"></button>
-      <button type="button" class="global-buttonb" pButton icon="pi pi-times" label="Cancel" (click)="onCancel()"></button>
+      <button
+        (click)="onConfirm()"
+        [disabled]="!productForm.valid"
+        type="button"
+        class="global-buttonb"
+        pButton
+      >
+        <i class="pi pi-check" style="padding-right: 8px"></i> Submit
+      </button>
+      <button type="button" class="global-buttonb" pButton (click)="onCancel()">
+        <i class="pi pi-times" style="padding-right: 8px"></i> Cancel
+      </button>
     </p-footer>
   </div>
 </p-dialog>
